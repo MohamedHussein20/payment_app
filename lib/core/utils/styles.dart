@@ -10,11 +10,10 @@ abstract class Styles {
     height: 8.h,
   );
   static TextStyle style24 = TextStyle(
-    fontSize: 25.sp,
+    fontSize: 24.sp,
     color: Colors.black,
     fontFamily: 'Inter',
     fontWeight: FontWeight.w600,
-    height: 8.h,
   );
   static TextStyle style18 = TextStyle(
     fontSize: 18.sp,
