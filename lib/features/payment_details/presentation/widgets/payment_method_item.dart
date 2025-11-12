@@ -15,7 +15,7 @@ class PaymentMethodItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 12.h),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 600),
+        duration: const Duration(milliseconds: 300),
         width: 103.w,
         height: 62.h,
         decoration: ShapeDecoration(
