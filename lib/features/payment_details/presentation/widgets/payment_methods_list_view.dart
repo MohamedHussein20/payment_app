@@ -2,13 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:payment_app/features/payment_details/presentation/widgets/payment_method_item.dart';
 
-class PaymentMethodsListView extends StatelessWidget {
+class PaymentMethodsListView extends StatefulWidget {
   const PaymentMethodsListView({super.key});
+
+  @override
+  State<PaymentMethodsListView> createState() => _PaymentMethodsListViewState();
+}
+
+class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
   final List<String> paymentMethods = const [
     'assets/images/card1.svg',
     'assets/images/card2.svg',
     'assets/images/card3.svg',
   ];
+
+  int activeIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,9 +26,15 @@ class PaymentMethodsListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: paymentMethods.length,
         itemBuilder: (context, index) {
-          return PaymentMethodItem(
-            isSelected: index == 0,
-            image: paymentMethods[index],
+          return GestureDetector(
+            onTap: () {
+              activeIndex = index;
+              setState(() {});
+            },
+            child: PaymentMethodItem(
+              isSelected: activeIndex == index,
+              image: paymentMethods[index],
+            ),
           );
         },
       ),
