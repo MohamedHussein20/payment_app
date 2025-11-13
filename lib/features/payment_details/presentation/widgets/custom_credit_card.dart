@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:payment_app/core/utils/styles.dart';
+import 'package:payment_app/features/payment_details/presentation/views/thank_you_view.dart';
 
 class CustomCreditCard extends StatefulWidget {
   const CustomCreditCard({super.key});
@@ -73,8 +74,12 @@ class _CustomCreditCardState extends State<CustomCreditCard> {
                   setState(() {
                     autoValidateMode = AutovalidateMode.always;
                   });
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ThankYouView(),
+                    ),
+                  );
                 }
-
               },
               child: Text(
                 'Pay',
