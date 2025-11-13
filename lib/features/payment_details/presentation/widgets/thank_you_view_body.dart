@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:payment_app/features/payment_details/presentation/widgets/custom_check_avatar.dart';
+import 'package:payment_app/features/payment_details/presentation/widgets/custom_dots_row.dart';
+import 'package:payment_app/features/payment_details/presentation/widgets/thank_you_card.dart';
 
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
@@ -14,30 +17,12 @@ class ThankYouViewBody extends StatelessWidget {
         child: Stack(
           clipBehavior: Clip.none,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffd9d9d9),
-                borderRadius: BorderRadius.circular(30.r),
-              ),
-            ),
+            const ThankYouCard(),
             Positioned(
               bottom: MediaQuery.sizeOf(context).height * 0.2 + 20.h,
               left: 36.w,
               right: 36.w,
-              child: Row(
-                children: List.generate(30, (index) {
-                  return Expanded(
-                    child: Container(
-                      height: 4.h,
-                      margin: EdgeInsets.symmetric(horizontal: 2.w),
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(2.r),
-                      ),
-                    ),
-                  );
-                }),
-              ),
+              child: const CustomDotsRow(),
             ),
             Positioned(
               bottom: MediaQuery.sizeOf(context).height * 0.2,
@@ -57,19 +42,7 @@ class ThankYouViewBody extends StatelessWidget {
               left: 0,
               right: 0,
               top: -40.h,
-              child: CircleAvatar(
-                radius: 50.r,
-                backgroundColor: const Color(0xffd9d9d9),
-                child: CircleAvatar(
-                  radius: 40.r,
-                  backgroundColor: const Color(0xff34A853),
-                  child: Icon(
-                    Icons.check,
-                    color: const Color(0xffffffff),
-                    size: 50.r,
-                  ),
-                ),
-              ),
+              child: const CustomCheckAvatar(),
             ),
           ],
         ),
