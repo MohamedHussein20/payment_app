@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:payment_app/core/utils/styles.dart';
 import 'package:payment_app/features/payment_details/presentation/widgets/master_card_container.dart';
+import 'package:payment_app/features/payment_details/presentation/widgets/payment_barcode.dart';
 import 'package:payment_app/features/payment_details/presentation/widgets/payment_info_item.dart';
 
 class ThankYouCard extends StatelessWidget {
@@ -55,10 +56,10 @@ class ThankYouCard extends StatelessWidget {
               ],
             ),
           ),
-
           SizedBox(height: 40.h),
-
           const MasterCardContainer(),
+          SizedBox(height: 150.h),
+          const PaymentBarcode(),
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:payment_app/core/utils/styles.dart';
-import 'package:payment_app/features/payment_details/presentation/views/payment_details_view.dart';
+import 'package:payment_app/features/checkout/presentation/widgets/payment_methods_bottom_sheet.dart';
 
 class CheckoutButton extends StatelessWidget {
   const CheckoutButton({super.key});
@@ -13,13 +13,14 @@ class CheckoutButton extends StatelessWidget {
       height: 73.h,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return const PaymentDetailsView();
-              },
+          showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.r),
             ),
+            context: context,
+            builder: (context) {
+              return const PaymentMethodsBottomSheet();
+            },
           );
         },
         style: ElevatedButton.styleFrom(
@@ -36,3 +37,5 @@ class CheckoutButton extends StatelessWidget {
     );
   }
 }
+
+
