@@ -25,4 +25,8 @@ class StripeService {
       ),
     );
   }
+
+  Future<void> presentPaymentSheet() async {
+    await Stripe.instance.presentPaymentSheet();
+  }
 }
