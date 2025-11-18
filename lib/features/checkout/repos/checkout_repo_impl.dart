@@ -7,7 +7,7 @@ import 'package:payment_app/features/checkout/repos/checkout_repo.dart';
 class CheckoutRepoImpl extends CheckoutRepo {
   final StripeService stripeService = StripeService();
   @override
-  Future<Either<Failure, void>> checkout({
+  Future<Either<Failure, void>> makePayment({
     required PaymentIntentInputModel paymentIntentInputModel,
   }) async {
     try {
