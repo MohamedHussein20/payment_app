@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:payment_app/core/utils/styles.dart';
+import 'package:payment_app/features/checkout/presentation/manager/cubit/payment_cubit.dart';
 import 'package:payment_app/features/checkout/presentation/widgets/payment_methods_bottom_sheet.dart';
+import 'package:payment_app/features/checkout/repos/checkout_repo_impl.dart';
 
 class CheckoutButton extends StatelessWidget {
-  const CheckoutButton({super.key});
+  const CheckoutButton({super.key, this.onTap});
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,10 @@ class CheckoutButton extends StatelessWidget {
             ),
             context: context,
             builder: (context) {
-              return const PaymentMethodsBottomSheet();
+              return BlocProvider(
+                create: (context) => PaymentCubit(CheckoutRepoImpl()),
+                child: const PaymentMethodsBottomSheet(),
+              );
             },
           );
         },
