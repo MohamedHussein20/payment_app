@@ -14,8 +14,10 @@ class StripeService {
     var response = await apiService.post(
       body: paymentIntentInputModel.toJson(),
       url: 'https://api.stripe.com/v1/payment_intents',
-      token: ApiKeys.secretKey,
       contentType: Headers.formUrlEncodedContentType,
+      headers: {
+        'Authorization': 'Bearer ${ApiKeys.secretKey}',
+      },
     );
     var paymentIntentModel = PaymentIntentModel.fromJson(response.data);
     return paymentIntentModel;
@@ -44,8 +46,7 @@ class StripeService {
   }) async {
     var response = await apiService.post(
       body: {'customer': customerId},
-      url: 'https://api.stripe.com/v1/payment_intents',
-      token: ApiKeys.secretKey,
+      url: 'https://api.stripe.com/v1/ephemeral_keys',
       contentType: Headers.formUrlEncodedContentType,
       headers: {
         'Authorization': 'Bearer ${ApiKeys.secretKey}',
