@@ -5,8 +5,8 @@ import 'package:payment_app/features/checkout/presentation/manager/cubit/payment
 import 'package:payment_app/features/checkout/presentation/widgets/custom_button.dart';
 import 'package:payment_app/features/payment_details/presentation/views/thank_you_view.dart';
 
-class CustomButtomBlocConsumer extends StatelessWidget {
-  const CustomButtomBlocConsumer({
+class CustomButtonBlocConsumer extends StatelessWidget {
+  const CustomButtonBlocConsumer({
     super.key,
   });
 
