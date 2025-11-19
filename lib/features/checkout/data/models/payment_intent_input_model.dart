@@ -3,7 +3,6 @@ class PaymentIntentInputModel {
   final String currency;
   final String customerId;
 
-
   PaymentIntentInputModel({
     required this.amount,
     required this.currency,
@@ -23,4 +22,5 @@ class PaymentIntentInputModel {
         customerId: '',
       );
 }
+
 //ephemeral_key stripeversion, id
