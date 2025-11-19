@@ -8,6 +8,7 @@ class ApiService {
     required String url,
     required String token,
     String? contentType,
+    Map<String, String>? headers,
   }) async {
     var response = await dio.post(
       url,
